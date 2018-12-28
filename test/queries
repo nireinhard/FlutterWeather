@@ -1,0 +1,3 @@
+GET http://api.openweathermap.org/data/2.5/weather?q=Riegelsberg,Germany&APPID=bcce0e3e45b54cf1c6d55eeb1be2307d HTTP/1.1
+
+GET http://api.openweathermap.org/data/2.5/forecast?q=Riegelsberg,Germany&APPID=bcce0e3e45b54cf1c6d55eeb1be2307d HTTP/1.1
