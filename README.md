@@ -2,8 +2,8 @@
 
 Basic Weather App built with Flutter.
 
-![](readme/screen1.png | width=250)
-![](readme/screen2.png | width=250)
+![](https://i.imgur.com/6vGahuJ.png)
+![](https://i.imgur.com/zhWdiYt.png)
 
 ## Functionality
 - add/ remove citites all over the world
