@@ -23,6 +23,10 @@ dependencies:
   flutter_secure_storage: ^3.1.2
   sqflite: any
   material_search: ^0.2.8
+  http: ^0.12.0
+  localstorage: ^1.0.0
+  path_provider: ^0.4.1
+
 
 dev_dependencies:
   flutter_test:
@@ -48,8 +52,16 @@ flutter:
     - assets/background.jpg
     - assets/cloudy.jpg
     - assets/sunny.jpg
+    - assets/snowy.jpg
+    - assets/stormy.jpg
     - assets/key.json
     - assets/cities.db
+    - assets/cloud.png
+    - assets/rain.png
+    - assets/storm.png
+    - assets/snow.png
+    - assets/rainy.jpg
+
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
