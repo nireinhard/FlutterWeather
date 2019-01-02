@@ -6,12 +6,6 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:weather/scoped-models/weather_model.dart';
 
 class WeatherList extends StatefulWidget {
-  Future<Null> _refreshPage() {
-    return Future(() {
-      return null;
-    });
-  }
-
   @override
   State<StatefulWidget> createState() {
     return _WeatherListState();
@@ -19,6 +13,12 @@ class WeatherList extends StatefulWidget {
 }
 
 class _WeatherListState extends State<WeatherList> {
+  void initState() {
+    super.initState();
+    WeatherModel model = ScopedModel.of(context);
+    model.loadWeatherList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<WeatherModel>(
@@ -64,16 +64,14 @@ class _WeatherListState extends State<WeatherList> {
                     direction: DismissDirection.endToStart,
                     onDismissed: (DismissDirection direction) {
                       if (direction == DismissDirection.endToStart) {
-                        setState(() {
-                          model.removeWeather(index);
-                        });
+                        model.removeWeather(index);
                       }
                     },
                     child: GestureDetector(
                       child: WeatherPreview(
                         model.weatherList[index],
                       ),
-                      onTap: () {
+                      onTap: () async {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (BuildContext context) {
                           return WeatherPage(model.weatherList[index]);
@@ -85,7 +83,7 @@ class _WeatherListState extends State<WeatherList> {
                 itemCount: model.weatherList.length,
               ),
             ),
-            onRefresh: widget._refreshPage,
+            onRefresh: model.refreshWeatherList,
           ),
         );
       },

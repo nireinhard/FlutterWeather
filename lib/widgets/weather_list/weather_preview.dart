@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:weather/models/weather.dart';
+import 'package:weather/widgets/utility/weather.dart';
 
 class WeatherPreview extends StatelessWidget {
   final Weather _weather;
 
   WeatherPreview(this._weather);
-
-  String _getImage(){
-    if(_weather.status == WeatherStatus.SUNNY){
-      return 'assets/sunny.jpg';
-    }else if(_weather.status == WeatherStatus.CLOUDY){
-      return 'assets/cloudy.jpg';
-    }else{
-      return 'assets/sunny.jpg';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +13,7 @@ class WeatherPreview extends StatelessWidget {
       height: 100.0,
       padding: EdgeInsets.all(20.0),
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(_getImage()),
-          fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(Colors.black54, BlendMode.darken)
-        ),
+        image: WeatherUtility.getBackgroundTheme(_weather.stats['sunsettimestamp'], _weather.status).item2,
       ),
       child: Row(
         children: <Widget>[
